@@ -52,3 +52,4 @@ volumes:
   postgres_inventory_data:
   postgres_order_data:
   postgres_product_data:
+  postgres_euser:

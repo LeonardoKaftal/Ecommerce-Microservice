@@ -1,19 +1,24 @@
 package com.ecommerce.userservice.controller;
 
+import com.ecommerce.userservice.dto.RegisterRequest;
+import com.ecommerce.userservice.dto.RegisterResponse;
+import com.ecommerce.userservice.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/users")
+@RequiredArgsConstructor
 public class AppUserController {
 
+    private final UserService userService;
+
     @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping
-    public String ok() {
-        return "Hello";
+    @PostMapping
+    public RegisterResponse registerUser(@RequestBody RegisterRequest registerRequest) {
+
+       return userService.registerUser(registerRequest);
     }
 
 }
