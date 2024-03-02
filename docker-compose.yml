@@ -25,18 +25,6 @@ services:
     volumes:
       - postgres_order_data:/var/lib/postgresql/data
 
-  postgres_product:
-    image: postgres:latest
-    container_name: product-db
-    environment:
-      POSTGRES_DB: product-db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_product_data:/var/lib/postgresql/data
-
   postgres_euser:
     image: postgres:latest
     container_name: user-db
@@ -52,5 +40,4 @@ services:
 volumes:
   postgres_inventory_data:
   postgres_order_data:
-  postgres_product_data:
   postgres_euser_data:
