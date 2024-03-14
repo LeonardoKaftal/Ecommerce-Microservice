@@ -1,6 +1,5 @@
 package com.ecommerce.inventoryservice.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,6 +25,7 @@ public class Product {
             generator = "product_sequence"
     )
     private Integer productId;
+    private String skuCode;
     private String name;
     private BigDecimal price;
     private String description;
@@ -33,6 +33,5 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private ProductCategory productCategory;
     @ManyToOne
-    @JsonIgnoreProperties("products")
     private Producer producer;
 }

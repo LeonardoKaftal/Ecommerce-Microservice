@@ -10,10 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @Component
 @RequiredArgsConstructor
@@ -429,7 +426,10 @@ public class SampleDataRunner implements CommandLineRunner {
 
         products = products
                 .stream()
-                .peek(product -> product.setQuantity(random.nextInt(10)))
+                .peek(product -> {
+                    product.setQuantity(random.nextInt(10));
+                    product.setSkuCode(UUID.randomUUID().toString());
+                })
                 .toList();
 
         products.forEach(product -> {

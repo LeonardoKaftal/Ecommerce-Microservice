@@ -9,11 +9,17 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/api/v1/users
+        # inventory-service
+        - id: inventory-service
+          uri: lb://inventory-service
+          predicates:
+            - Path=/api/v1/inventory/products
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8765/eureka
+
 
 
 

@@ -1,6 +1,5 @@
 package com.ecommerce.inventoryservice.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +27,5 @@ public class Producer {
     private Integer producerId;
     private String name;
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "producer")
-    @JsonIgnoreProperties("producer")
     private List<Product> products;
 }
