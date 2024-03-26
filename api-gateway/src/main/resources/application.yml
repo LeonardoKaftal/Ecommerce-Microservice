@@ -8,12 +8,12 @@ spring:
         - id: user-service
           uri: lb://user-service
           predicates:
-            - Path=/api/v1/users
+            - Path=/api/v1/users/**
         # inventory-service
         - id: inventory-service
           uri: lb://inventory-service
           predicates:
-            - Path=/api/v1/inventory/products
+            - Path=/api/v1/inventory/**
 
 eureka:
   client:
